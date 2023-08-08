@@ -5,8 +5,7 @@ function AppContainer() {
     const [info, setInfo] = useImmer({
         name: "John Doe",
         contact: "+1 (123)456-789",
-        emailAddress: "john.doe@gmail.com",
-        linkedin: "linkedin.com/in/johnDoe",
+        email: "john.doe@gmail.com",
         github: "github.com/johnDoe",
     });
 
