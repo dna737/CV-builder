@@ -1,18 +1,28 @@
 import ResumeForm from "./ResumeForm.jsx";
 import { Preview } from "./Preview.jsx";
-import { useState } from "react";
-
+import { useImmer } from "use-immer";
 function AppContainer() {
-    const [name, setName] = useState("something");
+    const [info, setInfo] = useImmer({
+        name: "John Doe",
+        contact: "+1 (123)456-789",
+        emailAddress: "john.doe@gmail.com",
+        linkedin: "linkedin.com/in/johnDoe",
+        github: "github.com/johnDoe",
+    });
 
-    function changeInput(event) {
-        setName(event.target.value);
+    function changeInfo(attribute, value) {
+        console.log("attribute:", attribute, "value", value);
+        setInfo((info) => {
+            info[attribute] = value;
+        });
     }
-
     return (
         <>
-            <ResumeForm name={name} changeInput={changeInput}></ResumeForm>
-            <Preview name={name}></Preview>
+            <ResumeForm
+                personalInfo={info}
+                changeInput={changeInfo}
+            ></ResumeForm>
+            <Preview personalInfo={info}></Preview>
         </>
     );
 }
