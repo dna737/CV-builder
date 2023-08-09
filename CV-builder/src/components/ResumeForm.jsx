@@ -9,7 +9,7 @@ export default function ResumeForm({
     changeExperienceInput,
 }) {
     return (
-        <div className=" w-1/2 min-w-{50%} h-full bg-red-500 p-2.5 rounded-md">
+        <div className=" w-1/2 h-full bg-red-500 p-2.5 rounded-md">
             <PersonInfoAndSocials
                 personalInfo={personalInfo}
                 changePersonalInput={changePersonalInput}
@@ -72,9 +72,7 @@ function PersonalField({ personalInfo, changePersonalInput, attribute }) {
     return (
         <div className="mb-6">
             <div className="first-name-field flex flex-col">
-                <label htmlFor={attribute + (attribute === "github" && "ID")}>
-                    {attribute}
-                </label>
+                <label htmlFor={attribute}>{attribute}</label>
                 <input
                     type={type}
                     value={personalInfo[attribute]}
