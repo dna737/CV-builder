@@ -9,17 +9,51 @@ function AppContainer() {
         github: "github.com/johnDoe",
     });
 
-    function changeInfo(attribute, value) {
-        console.log("attribute:", attribute, "value", value);
+    const [education, setEducation] = useImmer({
+        name: "FooBaz school of Bar",
+        location: "City, State",
+        gpa: { numerator: "x.0", denominator: "y.0" },
+    });
+
+    const [experience, setExperience] = useImmer({
+        0: {
+            name: "Walt Disney",
+            title: "Salary Negotiator",
+            responsibilities: [
+                "Negotiated for money",
+                "Spent money on courses that taught me how to negotiate money",
+                "Used the extra money and gave it away to TOP",
+            ],
+        },
+    });
+
+    function changePersonalInfo(attribute, value) {
         setInfo((info) => {
             info[attribute] = value;
         });
     }
+
+    function changeEducationInfo(attribute, value) {
+        setEducation((education) => {
+            education[attribute] = value;
+        });
+    }
+
+    function changeExperienceInfo(attribute, value) {
+        setExperience((experience) => {
+            experience[attribute] = value;
+        });
+    }
+
     return (
         <>
             <ResumeForm
                 personalInfo={info}
-                changeInput={changeInfo}
+                changePersonalInput={changePersonalInfo}
+                education={education}
+                changeEducationInput={changeEducationInfo}
+                experience={experience}
+                changeExperienceInput={changeExperienceInfo}
             ></ResumeForm>
             <Preview personalInfo={info}></Preview>
         </>
