@@ -20,9 +20,8 @@ export default function ResumeForm({
             />
             <Experience
                 experienceInfo={experience}
-                changeExperienceInput={changeEducationInput}
+                changeExperienceInput={changeExperienceInput}
             />
-            ;
         </div>
     );
 }
@@ -32,7 +31,7 @@ function PersonInfoAndSocials(props) {
         <>
             <h1>Personal Info && Socials:</h1>
             <form className="bg-yellow-400 p-3">
-                <div className="grid md:grid-cols-2 md:gap-6">
+                <div className="grid md:grid-cols-2 md:gap-3">
                     <PersonalField {...props} attribute={"name"} />
                     <PersonalField {...props} attribute={"contact"} />
                     <PersonalField {...props} attribute={"email"} />
@@ -41,30 +40,6 @@ function PersonInfoAndSocials(props) {
             </form>
         </>
     );
-}
-
-function Education(props) {
-    return <></>;
-}
-function getTypeOfInput(attribute) {
-    let type = null;
-    switch (attribute) {
-        case "contact":
-            type = "tel";
-            break;
-        case "email":
-            type = "email";
-            break;
-        default:
-            type = "text";
-            break;
-    }
-
-    return type;
-}
-
-function Experience(props) {
-    return <></>;
 }
 
 function PersonalField({ personalInfo, changePersonalInput, attribute }) {
@@ -84,4 +59,62 @@ function PersonalField({ personalInfo, changePersonalInput, attribute }) {
             </div>
         </div>
     );
+}
+function getTypeOfInput(attribute) {
+    let type = null;
+    switch (attribute) {
+        case "contact":
+            type = "tel";
+            break;
+        case "email":
+            type = "email";
+            break;
+        default:
+            type = "text";
+            break;
+    }
+
+    return type;
+}
+
+//TODO: remove the grid feauture in the Education form
+function Education(props) {
+    return (
+        <>
+            <h1>Education:</h1>
+            <form className="bg-yellow-400 p-3">
+                <div className="grid md:grid-cols-2 md:gap-3">
+                    <EducationField {...props} attribute={"name"} />
+
+                    <EducationField {...props} attribute={"location"} />
+
+                    <EducationField {...props} attribute={"gpa"} />
+                    <EducationField {...props} attribute={"gradDate"} />
+                </div>
+            </form>
+        </>
+    );
+}
+
+function EducationField({ educationInfo, changeEducationInput, attribute }) {
+    return (
+        <div>
+            <div className="mb-6">
+                <div className="first-name-field flex flex-col">
+                    <label htmlFor={attribute}>{attribute}</label>
+                    <input
+                        value={educationInfo[attribute]}
+                        id={attribute}
+                        onChange={(e) => {
+                            changeEducationInput(attribute, e.target.value);
+                        }}
+                    ></input>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function Experience(props) {
+    return <></>;
 }
