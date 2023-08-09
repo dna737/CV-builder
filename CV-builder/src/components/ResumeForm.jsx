@@ -116,5 +116,16 @@ function EducationField({ educationInfo, changeEducationInput, attribute }) {
 }
 
 function Experience(props) {
-    return <></>;
+    return <><h1>Experience:</h1>
+                 <form className="bg-yellow-400 p-3">
+                <div className="grid md:grid-cols-2 md:gap-3">
+                    <EducationField {...props} attribute={"name"} />
+
+                    <EducationField {...props} attribute={"location"} />
+
+                    <EducationField {...props} attribute={"gpa"} />
+                    <EducationField {...props} attribute={"gradDate"} />
+                </div>
+            </form>
+        </>;
 }
