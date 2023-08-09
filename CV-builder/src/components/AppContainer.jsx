@@ -12,19 +12,19 @@ function AppContainer() {
     const [education, setEducation] = useImmer({
         name: "FooBaz school of Bar",
         location: "City, State",
-        gpa: { numerator: "x.0", denominator: "y.0" },
+        gradDate: "May, 1900",
+        gpa: "x.0/y.0",
     });
 
     const [experience, setExperience] = useImmer({
-        0: {
-            name: "Walt Disney",
-            title: "Salary Negotiator",
-            responsibilities: [
-                "Negotiated for money",
-                "Spent money on courses that taught me how to negotiate money",
-                "Used the extra money and gave it away to TOP",
-            ],
-        },
+        name: "Walt Disney",
+        title: "Salary Negotiator",
+        responsibilities: [
+            "Negotiated for money",
+            "Spent money on courses that taught me how to negotiate money",
+            "Used the extra money and gave it away to TOP",
+        ],
+        date: "May 2019 - Present",
     });
 
     function changePersonalInfo(attribute, value) {
@@ -55,7 +55,11 @@ function AppContainer() {
                 experience={experience}
                 changeExperienceInput={changeExperienceInfo}
             ></ResumeForm>
-            <Preview personalInfo={info}></Preview>
+            <Preview
+                personalInfo={info}
+                educationInfo={education}
+                experienceInfo={experience}
+            ></Preview>
         </>
     );
 }
