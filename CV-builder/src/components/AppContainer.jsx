@@ -44,6 +44,12 @@ function AppContainer() {
     }
 
     function changeExperienceInfo(attribute, value) {
+        if (attribute.includes("responsibility")) {
+            setExperience((experience) => {
+                experience.responsibilities[attribute.split("-")[1]].title =
+                    value;
+            });
+        }
         setExperience((experience) => {
             experience[attribute] = value;
         });
