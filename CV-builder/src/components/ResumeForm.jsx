@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 export default function ResumeForm({
@@ -169,7 +170,7 @@ function ResponsibilitiesField({
                     {experienceInfo.responsibilities.map(
                         (responsibility, index) => {
                             return (
-                                <>
+                                <Fragment key={responsibility.id}>
                                     <label htmlFor={responsibility.id}>
                                         Responsibility-{index + 1}
                                     </label>
@@ -183,7 +184,7 @@ function ResponsibilitiesField({
                                             );
                                         }}
                                     ></input>
-                                </>
+                                </Fragment>
                             );
                         }
                     )}
