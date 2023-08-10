@@ -1,9 +1,7 @@
 /* eslint-disable react/prop-types */
 "";
 
-import { v4 as uuidv4 } from "uuid";
 function Preview({ personalInfo, educationInfo, experienceInfo }) {
-    //TODO: Display the result of the rest of the fields.
     return (
         <div className="p-2 h-full w-1/2 bg-gray-400">
             <PreviewPersonalInfo personalInfo={personalInfo} />
