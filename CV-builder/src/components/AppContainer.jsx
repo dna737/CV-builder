@@ -1,6 +1,7 @@
 import ResumeForm from "./ResumeForm.jsx";
 import { Preview } from "./Preview.jsx";
 import { useImmer } from "use-immer";
+import { v4 } from "uuid";
 function AppContainer() {
     const [info, setInfo] = useImmer({
         name: "John Doe",
@@ -20,9 +21,12 @@ function AppContainer() {
         name: "Walt Disney",
         title: "Salary Negotiator",
         responsibilities: [
-            "Negotiated for money",
-            "Spent money on courses that taught me how to negotiate money",
-            "Used the extra money and gave it away to TOP",
+            { title: "Negotiated for money", id: v4() },
+            {
+                title: "Spent money on courses that taught me how to negotiate money",
+                id: v4(),
+            },
+            { title: "Used the extra money and gave it away to TOP", id: v4() },
         ],
         date: "May 2019 - Present",
     });

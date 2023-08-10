@@ -1,6 +1,7 @@
-import { v4 as uuidv4 } from "uuid";
-
 /* eslint-disable react/prop-types */
+"";
+
+import { v4 as uuidv4 } from "uuid";
 function Preview({ personalInfo, educationInfo, experienceInfo }) {
     //TODO: Display the result of the rest of the fields.
     return (
@@ -76,8 +77,11 @@ function PreviewExperienceInfo({ experienceInfo }) {
                 </div>
                 <ul className="lists list-disc mx-5">
                     {experienceInfo.responsibilities.map((responsibility) => (
-                        <li key={uuidv4()} className="text-lg font-normal">
-                            {responsibility}
+                        <li
+                            key={responsibility.id}
+                            className="text-lg font-normal"
+                        >
+                            {responsibility.title}
                         </li>
                     ))}
                 </ul>
