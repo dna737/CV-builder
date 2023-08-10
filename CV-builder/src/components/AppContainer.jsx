@@ -19,7 +19,7 @@ function AppContainer() {
 
     const [experience, setExperience] = useImmer({
         name: "Walt Disney",
-        title: "Salary Negotiator",
+        title: "Salary Negotiator, Slacker",
         responsibilities: [
             { title: "Negotiated for money", id: v4() },
             {
