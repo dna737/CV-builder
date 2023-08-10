@@ -77,7 +77,6 @@ function getTypeOfInput(attribute) {
     return type;
 }
 
-//TODO: remove the grid feauture in the Education form
 function Education(props) {
     return (
         <>
@@ -127,7 +126,10 @@ function Experience(props) {
                 </div>
                 <ExperienceField {...props} attribute={"date"} />
 
-                <ExperienceField {...props} attribute={"responsibilities"} />
+                <ResponsibilitiesField
+                    {...props}
+                    attribute={"responsibility"}
+                />
             </form>
         </>
     );
@@ -135,7 +137,7 @@ function Experience(props) {
 
 function ExperienceField({ experienceInfo, changeExperienceInput, attribute }) {
     //hi there
-    let value = getExperienceInputValue(experienceInfo, attribute);
+    // let value = getExperienceInputValue(experienceInfo, attribute);
 
     return (
         <div>
@@ -155,6 +157,38 @@ function ExperienceField({ experienceInfo, changeExperienceInput, attribute }) {
     );
 }
 
-function getExperienceInputValue(experienceInfo, attribute) {
-    return attribute !== "";
+function ResponsibilitiesField({
+    experienceInfo,
+    changeExperienceInput,
+    attribute,
+}) {
+    return (
+        <div>
+            <div className="mb-1.5">
+                <div className="first-name-field flex flex-col">
+                    {experienceInfo.responsibilities.map(
+                        (responsibility, index) => {
+                            return (
+                                <>
+                                    <label htmlFor={responsibility.id}>
+                                        Responsibility-{index + 1}
+                                    </label>
+                                    <input
+                                        value={responsibility.title}
+                                        id={responsibility.id}
+                                        onChange={(e) => {
+                                            changeExperienceInput(
+                                                attribute + "-" + index,
+                                                e.target.value
+                                            );
+                                        }}
+                                    ></input>
+                                </>
+                            );
+                        }
+                    )}
+                </div>
+            </div>
+        </div>
+    );
 }
