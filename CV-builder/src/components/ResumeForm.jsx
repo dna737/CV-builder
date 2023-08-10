@@ -10,7 +10,7 @@ export default function ResumeForm({
     changeExperienceInput,
 }) {
     return (
-        <div className=" w-1/2 h-full bg-red-500 p-2.5 rounded-md">
+        <div className=" w-5/12 h-full bg-red-500 p-2.5 rounded-md">
             <PersonInfoAndSocials
                 personalInfo={personalInfo}
                 changePersonalInput={changePersonalInput}

@@ -3,7 +3,7 @@
 
 function Preview({ personalInfo, educationInfo, experienceInfo }) {
     return (
-        <div className="p-2 h-full w-1/2 bg-gray-400">
+        <div className="p-2 h-full w-5/12 bg-gray-400">
             <PreviewPersonalInfo personalInfo={personalInfo} />
             <PreviewEducationInfo educationInfo={educationInfo} />
             <PreviewExperienceInfo experienceInfo={experienceInfo} />
