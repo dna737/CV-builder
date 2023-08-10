@@ -56,7 +56,6 @@ function PreviewEducationInfo({ educationInfo }) {
 }
 
 function PreviewExperienceInfo({ experienceInfo }) {
-    console.log("experienceInfo:", experienceInfo);
     return (
         <div className="experience-section my-5 text-2xl font-semibold">
             EXPERIENCE
