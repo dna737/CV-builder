@@ -26,7 +26,10 @@ function AppContainer() {
                 title: "Spent money on courses that taught me how to negotiate money",
                 id: v4(),
             },
-            { title: "Used the extra money and gave it away to TOP", id: v4() },
+            {
+                title: "Used the extra money to learn how to work for github.com/dna737 😎",
+                id: v4(),
+            },
         ],
         date: "May 2019 - Present",
     });
